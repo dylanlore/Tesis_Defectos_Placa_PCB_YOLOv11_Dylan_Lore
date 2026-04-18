@@ -1,0 +1,30 @@
+# Entorno virtual
+.venv/
+
+# Modelos base descargados por Ultralytics
+yolo11s.pt
+yolo11n.pt
+yolo11m.pt
+yolo26n.pt
+
+# Dataset (demasiado pesado)
+archive/
+
+# Caché de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Caché de Ultralytics
+labels.cache
+*.cache
+
+# Archivos temporales del script
+gpu_log_temp.csv
+
+# PyCharm
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
