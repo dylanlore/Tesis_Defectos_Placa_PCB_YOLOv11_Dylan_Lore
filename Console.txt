@@ -1,0 +1,144 @@
+============================================================
+  MODO: PRUEBA (5 épocas)
+  Modelo : yolo11s.pt
+  Run    : deeppcb_yolo11s_TEST
+  YAML   : C:\Users\dylan\OneDrive\Documentos\YOLOV11\deeppcb.yaml
+============================================================
+
+Monitoreo GPU iniciado.
+Inicio: 2026-04-18 11:24:25
+
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11s.pt to 'yolo11s.pt': 100% ━━━━━━━━━━━━ 18.4MB 4.5MB/s 4.1s
+New https://pypi.org/project/ultralytics/8.4.38 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.21  Python-3.12.10 torch-2.6.0+cu124 CUDA:0 (NVIDIA GeForce RTX 3050 Laptop GPU, 4096MiB)
+engine\trainer: agnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=8, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=C:\Users\dylan\OneDrive\Documentos\YOLOV11\deeppcb.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, end2end=None, epochs=5, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=True, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11s.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=deeppcb_yolo11s_TEST2, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+Overriding model.yaml nc=80 with nc=6
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       928  ultralytics.nn.modules.conv.Conv             [3, 32, 3, 2]                 
+  1                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  2                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  3                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  4                  -1  1    103360  ultralytics.nn.modules.block.C3k2            [128, 256, 1, False, 0.25]    
+  5                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+  6                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  7                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  8                  -1  1   1380352  ultralytics.nn.modules.block.C3k2            [512, 512, 1, True]           
+  9                  -1  1    656896  ultralytics.nn.modules.block.SPPF            [512, 512, 5]                 
+ 10                  -1  1    990976  ultralytics.nn.modules.block.C2PSA           [512, 512, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    443776  ultralytics.nn.modules.block.C3k2            [768, 256, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1    127680  ultralytics.nn.modules.block.C3k2            [512, 128, 1, False]          
+ 17                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1    345472  ultralytics.nn.modules.block.C3k2            [384, 256, 1, False]          
+ 20                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1   1511424  ultralytics.nn.modules.block.C3k2            [768, 512, 1, True]           
+ 23        [16, 19, 22]  1    821730  ultralytics.nn.modules.head.Detect           [6, 16, None, [128, 256, 512]]
+YOLO11s summary: 182 layers, 9,430,114 parameters, 9,430,098 gradients, 21.6 GFLOPs
+
+Transferred 493/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+AMP: running Automatic Mixed Precision (AMP) checks...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt to 'yolo26n.pt': 100% ━━━━━━━━━━━━ 5.3MB 4.5MB/s 1.2s
+AMP: checks passed 
+train: Fast image access  (ping: 0.10.0 ms, read: 5.32.4 MB/s, size: 36.8 KB)
+train: Scanning C:\Users\dylan\OneDrive\Documentos\YOLOV11\archive\DeepPCB\PCBData\deeppcb_yolo_final\labels\train... 800 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 800/800 334.9it/s 2.4s
+train: New cache created: C:\Users\dylan\OneDrive\Documentos\YOLOV11\archive\DeepPCB\PCBData\deeppcb_yolo_final\labels\train.cache
+val: Fast image access  (ping: 0.30.1 ms, read: 2.61.0 MB/s, size: 31.2 KB)
+val: Scanning C:\Users\dylan\OneDrive\Documentos\YOLOV11\archive\DeepPCB\PCBData\deeppcb_yolo_final\labels\val... 200 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 200/200 193.2it/s 1.0s
+val: New cache created: C:\Users\dylan\OneDrive\Documentos\YOLOV11\archive\DeepPCB\PCBData\deeppcb_yolo_final\labels\val.cache
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+optimizer: AdamW(lr=0.001, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Plotting labels to C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2\labels.jpg... 
+Image sizes 640 train, 640 val
+Using 4 dataloader workers
+Logging results to C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2
+Starting training for 5 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        1/5      2.13G      2.194      3.142      1.422         78        640: 100% ━━━━━━━━━━━━ 100/100 4.0it/s 24.7s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 4.9it/s 2.7s
+                   all        200       1203      0.382      0.439      0.332      0.155
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        2/5       2.2G      1.456      1.318      1.069         61        640: 100% ━━━━━━━━━━━━ 100/100 4.7it/s 21.2s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 5.6it/s 2.3s
+                   all        200       1203      0.372      0.335      0.294     0.0779
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        3/5      2.19G      1.362      1.115      1.047         84        640: 100% ━━━━━━━━━━━━ 100/100 4.9it/s 20.6s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 6.0it/s 2.2s
+                   all        200       1203      0.722      0.715      0.758      0.377
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        4/5      2.21G      1.279     0.9432      1.021         76        640: 100% ━━━━━━━━━━━━ 100/100 4.8it/s 20.8s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 5.8it/s 2.2s
+                   all        200       1203      0.748      0.647      0.708      0.291
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        5/5      2.21G      1.163     0.8121     0.9755         82        640: 100% ━━━━━━━━━━━━ 100/100 4.9it/s 20.6s
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 5.9it/s 2.2s
+                   all        200       1203      0.844      0.745      0.846      0.417
+
+5 epochs completed in 0.035 hours.
+Optimizer stripped from C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2\weights\last.pt, 19.2MB
+Optimizer stripped from C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2\weights\best.pt, 19.2MB
+
+Validating C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2\weights\best.pt...
+Ultralytics 8.4.21  Python-3.12.10 torch-2.6.0+cu124 CUDA:0 (NVIDIA GeForce RTX 3050 Laptop GPU, 4096MiB)
+YOLO11s summary (fused): 101 layers, 9,415,122 parameters, 0 gradients, 21.3 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 13/13 4.2it/s 3.1s
+                   all        200       1203      0.843      0.745      0.846      0.417
+                  open        193        256      0.745      0.831      0.809      0.407
+                 short        154        182      0.938       0.58      0.808      0.389
+             mousebite        153        208      0.744      0.769      0.807      0.365
+                  spur        153        191      0.888      0.539      0.765      0.326
+                copper        149        165      0.973      0.864       0.96      0.505
+              pin-hole        185        201      0.769      0.886      0.925       0.51
+Speed: 0.4ms preprocess, 6.6ms inference, 0.0ms loss, 2.5ms postprocess per image
+Results saved to C:\Users\dylan\OneDrive\Documentos\YOLOV11\runs\detect\deeppcb_yolo11s_TEST2
+
+Fin: 2026-04-18 11:28:01
+Tiempo total: 3.6 min (216 s)
+VRAM máxima usada: 2132 MB
+
+============================================================
+  EVALUACIÓN FINAL sobre conjunto TEST
+============================================================
+Traceback (most recent call last):
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\train.py", line 181, in <module>
+    main()
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\train.py", line 107, in main
+    model_eval = YOLO(str(best_weights))
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\models\yolo\model.py", line 76, in __init__
+    super().__init__(model=model, task=task, verbose=verbose)
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\engine\model.py", line 144, in __init__
+    self._load(model, task=task)
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\engine\model.py", line 283, in _load
+    self.model, self.ckpt = load_checkpoint(weights)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 1515, in load_checkpoint
+    ckpt, weight = torch_safe_load(weight)  # load ckpt
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\nn\tasks.py", line 1463, in torch_safe_load
+    ckpt = torch_load(file, map_location="cpu")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\ultralytics\utils\patches.py", line 178, in torch_load
+    return torch.load(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dylan\OneDrive\Documentos\YOLOV11\.venv\Lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\dylan\\OneDrive\\Documentos\\YOLOV11\\runs\\detect\\deeppcb_yolo11s_TEST\\weights\\best.pt'
