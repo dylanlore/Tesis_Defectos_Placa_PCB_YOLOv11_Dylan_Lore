@@ -1,0 +1,52 @@
+# ============================================================
+# requirements.txt — Entorno YOLOv11 / DeepPCB
+# Python 3.x + CUDA 12.4 (RTX 3050 4GB)
+# ============================================================
+
+# --- PyTorch con CUDA 12.4 (instalar PRIMERO con el comando especial) ---
+# NO usar pip install directo para torch — ver instrucciones abajo
+torch==2.6.0+cu124
+torchaudio==2.6.0+cu124
+torchvision==0.21.0+cu124
+
+# --- YOLO / Computer Vision ---
+ultralytics==8.4.21
+ultralytics-thop==2.0.18
+# IMPORTANTE: instalar solo opencv-python, NO opencv-python-headless (conflicto)
+opencv-python==4.13.0.92
+
+# --- Ciencia de datos ---
+numpy==2.3.5
+matplotlib==3.10.8
+scipy==1.17.1
+pillow==12.0.0
+polars==1.39.0
+polars-runtime-32==1.39.0
+
+# --- Utilidades ---
+PyYAML==6.0.3
+requests==2.32.5
+psutil==7.2.2
+packaging==26.0
+fsspec==2025.12.0
+filelock==3.20.0
+sympy==1.13.1
+mpmath==1.3.0
+networkx==3.6.1
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+typing_extensions==4.15.0
+certifi==2026.2.25
+charset-normalizer==3.4.5
+idna==3.11
+urllib3==2.6.3
+
+# --- Dependencias de matplotlib ---
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.62.0
+kiwisolver==1.5.0
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+six==1.17.0
+setuptools==70.2.0

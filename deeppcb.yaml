@@ -1,0 +1,20 @@
+# deeppcb.yaml — Configuración del dataset DeepPCB para YOLOv11
+# Ultralytics YOLO format
+
+path: C:/Users/dylan/OneDrive/Documentos/YOLOV11/archive/DeepPCB/PCBData/deeppcb_yolo_final
+
+train: images/train   # 800 imágenes de entrenamiento
+val:   images/val     # 200 imágenes de validación
+test:  test/images    # 500 imágenes de prueba
+
+# Número de clases
+nc: 6
+
+# Nombres de las clases (en orden, de 0 a 5)
+names:
+  0: open
+  1: short
+  2: mousebite
+  3: spur
+  4: copper
+  5: pin-hole
