@@ -1,0 +1,56 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERSIÓN 2 — Batch size mayor + resolución aumentada
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Modelo       : yolo11s.pt
+Épocas       : 100
+Batch size   : 16  (↑ desde 8 en v1)
+Image size   : 800 (↑ desde 640 en v1)
+Device       : 0 (RTX 3050 4GB)
+Precisión    : FP16 (half=True)
+Workers      : 4
+
+Augmentaciones (ajustadas para imágenes en escala de grises):
+  hsv_h      : 0.0  (desactivado — sin efecto en grises)
+  hsv_s      : 0.0  (desactivado — sin efecto en grises)
+  hsv_v      : 0.4  (brillo — activo)
+  bgr        : 0.0  (desactivado)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESULTADOS — Test set (500 imágenes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+mAP50        : 0.9757  (↑ +0.0155 vs v1)
+mAP50-95     : 0.7996  (↑ +0.1113 vs v1)
+Precision    : 0.9544  (↑ +0.0116 vs v1)
+Recall       : 0.9463  (↑ +0.0258 vs v1)
+F1 global    : 0.9503  (↑ +0.0188 vs v1)
+
+Por clase:
+  open       : AP50=0.9516  F1=0.9298  (↑ vs v1)
+  short      : AP50=0.9618  F1=0.9310  (↑ vs v1 — mayor mejora)
+  mousebite  : AP50=0.9836  F1=0.9694  (↑ vs v1)
+  spur       : AP50=0.9818  F1=0.9513  (↑ vs v1)
+  copper     : AP50=0.9888  F1=0.9784  (↑ vs v1)
+  pin-hole   : AP50=0.9869  F1=0.9363  (↑ vs v1)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EFICIENCIA COMPUTACIONAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tiempo total : 274.11 min (~4.6 horas)
+VRAM máxima  : 6048 MB (superó los 4GB físicos,
+               PyTorch usó memoria compartida del sistema)
+Hardware     : RTX 3050 4GB — AMD Ryzen 5 6600H
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPARATIVA vs V1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+           v1 (b8/640)   v2 (b16/800)   Δ
+mAP50      0.9602        0.9757         +0.0155
+mAP50-95   0.6883        0.7996         +0.1113
+Precision  0.9428        0.9544         +0.0116
+Recall     0.9205        0.9463         +0.0258
+F1         0.9315        0.9503         +0.0188
+Tiempo     37.76 min     274.11 min     +236 min
