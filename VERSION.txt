@@ -1,0 +1,56 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERSIÓN 4 — yolo11m batch6 imgsz704 (configuración óptima)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Modelo       : yolo11m.pt
+Épocas       : 100
+Batch size   : 6
+Image size   : 704
+Device       : 0 (RTX 3050 4GB)
+Precisión    : FP16 (half=True)
+Workers      : 4
+
+Augmentaciones (ajustadas para imágenes en escala de grises):
+  hsv_h      : 0.0  (desactivado — sin efecto en grises)
+  hsv_s      : 0.0  (desactivado — sin efecto en grises)
+  hsv_v      : 0.4  (brillo — activo)
+  bgr        : 0.0  (desactivado)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESULTADOS — Test set (500 imágenes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+mAP50        : 0.9799  ← MEJOR de todas las versiones
+mAP50-95     : 0.7643
+Precision    : 0.9604
+Recall       : 0.9451
+F1 global    : 0.9527  ← MEJOR de todas las versiones
+
+Por clase:
+  open       : AP50=0.9700  F1=0.9470
+  short      : AP50=0.9559  F1=0.9250
+  mousebite  : AP50=0.9879  F1=0.9681
+  spur       : AP50=0.9830  F1=0.9466
+  copper     : AP50=0.9905  F1=0.9813
+  pin-hole   : AP50=0.9918  F1=0.9438
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EFICIENCIA COMPUTACIONAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tiempo total : 119.34 min (~2 horas)
+VRAM máxima  : 3816 MB / 4096 MB físicos (93% de uso)
+Hardware     : RTX 3050 4GB — AMD Ryzen 5 6600H
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPARATIVA COMPLETA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+              v1 s/b8/640   v2 s/b16/800   v3 m/b8/640   v4 m/b6/704
+mAP50         0.9602        0.9757         0.9758         0.9799 ✅
+mAP50-95      0.6883        0.7996         0.7116         0.7643
+Precision     0.9428        0.9544         0.9649         0.9604
+Recall        0.9205        0.9463         0.9342         0.9451
+F1            0.9315        0.9503         0.9493         0.9527 ✅
+VRAM          2149MB        6048MB❌       4139MB⚠️       3816MB✅
+Tiempo        37min         274min         150min         119min
