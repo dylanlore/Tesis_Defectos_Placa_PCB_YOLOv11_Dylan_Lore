@@ -1,0 +1,14 @@
+metrica,valor
+modelo,yolo11m.pt
+epochs,100
+batch_size,8
+imgsz,640
+half_fp16,True
+tiempo_total_min,149.63
+tiempo_total_seg,8978
+vram_max_mb,4139
+mAP50_test,0.9758
+mAP50_95_test,0.7116
+precision_test,0.9649
+recall_test,0.9342
+f1_global_test,0.9493

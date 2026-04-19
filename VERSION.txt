@@ -1,0 +1,57 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERSIÓN 3 — Modelo medium (yolo11m) configuración base
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Modelo       : yolo11m.pt
+Épocas       : 100
+Batch size   : 8
+Image size   : 640
+Device       : 0 (RTX 3050 4GB)
+Precisión    : FP16 (half=True)
+Workers      : 4
+
+Augmentaciones (ajustadas para imágenes en escala de grises):
+  hsv_h      : 0.0  (desactivado — sin efecto en grises)
+  hsv_s      : 0.0  (desactivado — sin efecto en grises)
+  hsv_v      : 0.4  (brillo — activo)
+  bgr        : 0.0  (desactivado)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESULTADOS — Test set (500 imágenes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+mAP50        : 0.9758
+mAP50-95     : 0.7116
+Precision    : 0.9649
+Recall       : 0.9342
+F1 global    : 0.9493
+
+Por clase:
+  open       : AP50=0.9690  F1=0.9471
+  short      : AP50=0.9464  F1=0.8965
+  mousebite  : AP50=0.9810  F1=0.9618
+  spur       : AP50=0.9823  F1=0.9535
+  copper     : AP50=0.9903  F1=0.9731
+  pin-hole   : AP50=0.9860  F1=0.9612
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EFICIENCIA COMPUTACIONAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tiempo total : 149.63 min (~2.5 horas)
+VRAM máxima  : 4139 MB / 4096 MB físicos
+               (dentro del límite, sin memoria compartida)
+Hardware     : RTX 3050 4GB — AMD Ryzen 5 6600H
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPARATIVA vs V1 y V2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+              v1 s/b8/640   v2 s/b16/800   v3 m/b8/640
+mAP50         0.9602        0.9757         0.9758
+mAP50-95      0.6883        0.7996         0.7116
+Precision     0.9428        0.9544         0.9649
+Recall        0.9205        0.9463         0.9342
+F1            0.9315        0.9503         0.9493
+VRAM          2149MB        6048MB❌       4139MB✅
+Tiempo        37min         274min         150min
